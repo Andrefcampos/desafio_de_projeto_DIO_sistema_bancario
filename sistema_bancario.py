@@ -1,4 +1,4 @@
-# Menu de interações
+
 menu = '''
 ===============$$Banco$$===============
 [1] Depositar
@@ -8,17 +8,14 @@ menu = '''
 ===============$$$$$$$$$===============
 '''
 deposito = n_deposito = n_saque = saque = saldo = 0
-limite_saque = 3 # limite de diário de saque
-extrato_saque = [] # lista para armazenar valores depositados
-extrato_deposito = [] # lista para armazenar valores sacados
-# lista com nomes chaves
+limite_saque = 3
+extrato_saque = []
+extrato_deposito = []
+
 nome_operacoes = ['Depósito', 'Saque', 'Extrato', 'Sair', 'Extrato de depósito', 'Extrato de saque', 'Saldo']
 
-# Loop para operações escolhidas
 while True:
-    # Entrada de dados para escolher operações
     operacao = int(input(menu + '-> '))
-    # Condições para opção de depósitos
     if operacao == 1:
         print(f'>>> Você selecionou a opção {nome_operacoes[0]}:')
         print()
@@ -30,7 +27,6 @@ while True:
             extrato_deposito.append(deposito)
         else:
             print(f'>> Não foi possível realizar o depósito de R$ {deposito:.2f}. Realize um depósito elegível.')
-    # Condições para opção de saques
     elif operacao == 2:
         print(f'>>> Você selecionou a opção {nome_operacoes[1]}:')
         print()
@@ -53,25 +49,21 @@ while True:
                 print()        
         else:
             print(f'>> Você não tem saldo suficiente para realizar esse saque, por favor, informe outro valor.')
-    # Condições para opção de extrato
     elif operacao == 3:
         print(f'>>> Você selecionou a opção {nome_operacoes[2]}:')
         print()
         print(f'>{nome_operacoes[4].center(30)}<')
         print()
-        # Loop para impressão do extrato de depósito
         for i, v in enumerate(extrato_deposito):
             print(f'- {i + 1}º depósito -> R$ {v};')
         print(f'>{nome_operacoes[5].center(30)}<')
         print()
-        # Loop para impressão do extrato de saque
         for i, v in enumerate(extrato_saque):
             print(f'- {i + 1}º saque -> R$ {v};')
         print(f'>{nome_operacoes[6].center(30)}<')
         print()
         print(f'- R$ {saldo}')
         print('-' * 34)
-    # Loop para impressão do extrato de saque
     elif operacao == 4:
         print('===== $Muito obrigado e volte sempre!$ =====')
         break
